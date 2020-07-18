@@ -1,0 +1,28 @@
+---
+title: Project C Project
+author: Charlie Windolf
+rights: MIT License
+lang: en-US
+tags: [stat]
+# abstract: |
+#   Hi everyone.
+mainfont: TeX Gyre Pagella
+mainfontoptions:
+# - Numbers=Lowercase
+# - Numbers=Proportional
+mathfont: TeX Gyre Pagella Math
+monofont: Menlo
+numbersections: true
+classoptions:
+  - 12pt
+#   - draft
+geometry:
+  - paperwidth=6.5in
+  - paperheight=10in
+  - margin=1in
+
+# Filter preferences:
+# - pandoc-crossref
+linkReferences: true
+---
+

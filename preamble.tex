@@ -1,0 +1,69 @@
+% -- extra packages
+% \usepackage{eucal}
+\usepackage{mathtools}
+
+% -- for pandoc-theorem
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\theoremstyle{remark}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{note}{Note}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{assumption}{Assumption}[section]
+
+% cases looking weird
+\makeatletter
+\def\env@cases{%
+  \let\@ifnextchar\new@ifnextchar
+  \left\lbrace
+  \def\arraystretch{1.2}%
+  \array{l@{\quad}l@{}}% Formerly @{}l@{\quad}l@{}
+}
+\makeatother
+
+% -- shorthands
+\newcommand{\1}[1]{\mathbf{1}_{{#1}}}
+
+% -- delimeters
+% tex.stackexchange.com/questions/43008
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% -- symbols
+\newcommand{\ind}{\mathbin{{\perp\!\!\!\perp}}}
+\let\nil\varnothing
+\AtBeginDocument{
+  % to do this after unicode-math has done its work
+  \renewcommand{\setminus}{\mathbin{\backslash}}%
+}
+
+% -- bbs and cals
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calX}{\mathcal{X}}
+
+% -- distributions
+\newcommand{\Bin}{\mathrm{Bin}}
+
+% -- common
+\newcommand{\atan}{\operatorname{atan}}
+
+

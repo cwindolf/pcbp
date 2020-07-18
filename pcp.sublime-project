@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+    "build_systems":
+    [
+        {
+            "shell_cmd": "make",
+            "name": "make",
+            "working_dir": "$project_path",
+            "file_patterns": ["*.md"],
+        },
+    ]
+}
