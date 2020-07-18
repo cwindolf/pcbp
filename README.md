@@ -17,9 +17,11 @@ Filters:
 ```
  $ brew install haskell-stack
  $ cd ~/.local/
+ # use this "pandoc-theorem" for theorem environments
  # actually, use fork with dependencies fixed, I guess
  # https://github.com/sliminality/pandoc-theorem/pull/4
- $ git clone git clone https://github.com/sliminality/pandoc-theorem.git
+ # my fork builds on that with some new envs
+ $ git clone https://github.com/cwindolf/pandoc-theorem
  $ cd pandoc-theorem
  $ stack install
 ```
