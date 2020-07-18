@@ -1,4 +1,4 @@
-pandoc_cmd=pandoc --metadata-file=metadata.yml --pdf-engine=xelatex --template=tmpl.tex --toc --toc-depth=2 -V documentclass=report --filter pandoc-theorem-exe
+pandoc_cmd=pandoc --metadata-file=metadata.yml --pdf-engine=xelatex --include-in-header=preamble.tex --toc --toc-depth=2 -V documentclass=report --filter pandoc-theorem-exe
 
 .PHONY: all
 all: notes.pdf ex.pdf
