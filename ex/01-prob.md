@@ -419,7 +419,7 @@
      $$1 - F(x_0)=\lim_{x\to\infty} [F(x) - F(x_0)] = \int_{x_0}^\infty f(x)\,dx.$$
 
  53. *A river floods every year. Suppose the low-water mark is at 1, and the high water mark $Y$ has cdf*
-     $$F_Y(y)=1-\frac1{y^2},\quad1\leq y\leq\infty.$$
+     $$F_Y(y)=1-\frac1{y^2},\quad1\leq y<\infty.$$
 
      a. *Check that $F_Y$ is a cdf.*
 
@@ -429,5 +429,45 @@
 
      c. *Let $Z=10(Y-1)$ and find $F_Z$.*
 
+        Well,
+        $$\begin{aligned}
+        F_Z(z)
+        &=P(10(Y-1)\leq z)\\
+        &=P(10Y\leq z+10)\\
+        &=P\bigg(Y\leq \frac{z+10}{10}\bigg)\\
+        &=F_Y\bigg(\frac{z+10}{10}\bigg)\\
+        &=1-\bigg(\frac{z+10}{10}\bigg)^{-2},
+        \end{aligned}$$
+        on the domain $0\leq z<\infty$.
+
+ 54. *Find $c$ such that the following $f(x)$ are pdfs.*
+
+     a. $f(x)=c\sin x,0\leq x<\pi/2$.
+
+        Pick
+        $$c=\int_0^{\frac\pi2}\sin x\,dx=[-\cos x]_0^{\frac\pi2}=-0+1,$$
+        OK then, fine. Shoulda known.
+
+     b. $f(x)=ce^{-\abs{x}}$, $x\in\bbR$.
+
+        By symmetry,
+        $$\frac{c}{2}=\int_0^\infty e^{-x}\,dx=[-e^{-x}]_0^\infty=-0+\frac1e,$$
+        so take $c=\frac2e$.
+
+ 55. *An electronic device has lifetime $T$. The device has value $V=5$ if it fails before time 3, otherwise it has value $V=2T$. Find the cdf of $V$ if $T$ has pdf*
+     $$f_T(t)=\frac{1}{1.5}e^{-t/1.5},\quad t>0.$$
+
+     We can see that $V=5$ with probability $P(T\leq 3)$, and otherwise $V$ takes values starting at 6, such that
+     $$F_V(v)=\begin{cases}
+     0 & v<5\\
+     P(T\leq3) & 5\leq v<6\\
+     P(2T\leq v) & 6\leq v.
+     \end{cases}$$
+     These are more easily computed using the cdf of $T$, which is
+     $$F_T(t)=\int_0^t \tfrac{1}{1.5}e^{-s/1.5}\,ds=[-e^{-s/1.5}]_0^t=1-e^{-t/1.5}.$$
+     From here, we see that
+     $$P(T\leq 3)=F_T(3)=1-e^{-2},$$
+     and
+     $$P(2T\leq v)=F_T(\tfrac{v}{2})=1-e^{-t/3}.$$
 
 
