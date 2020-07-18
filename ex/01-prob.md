@@ -3,7 +3,7 @@
  1. *For each of the following experiments, describe the sample space.*
     a. *Toss a coin four times.*
 
-      $\{H,T\}^4$.
+       $\{H,T\}^4$.
 
     b. *Count the number of insect-damaged leaves on a plant.*
 
@@ -55,7 +55,7 @@
 
     These follow directly from commutativity, associativity, and the De Morgan's laws of logical and and or, which can be shown by looking at truth tables.
 
- 4. *For events $A$ and $B$, find formulas for the following events in terms of $P(A)$, $P(B)$, and $P(A\cap B)$.
+ 4. *For events $A$ and $B$, find formulas for the following events in terms of $P(A)$, $P(B)$, and $P(A\cap B)$.*
 
     a. *either $A$ or $B$ or both:* This is inclusion-exclusion: $$P(A\cup B)=P(A)+P(B)-P(A\cap B).$$
 
