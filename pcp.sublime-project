@@ -13,5 +13,9 @@
             "working_dir": "$project_path",
             "file_patterns": ["*.md"],
         },
-    ]
+    ],
+    "settings":
+    {
+        "tab_size": 1,
+    }
 }
