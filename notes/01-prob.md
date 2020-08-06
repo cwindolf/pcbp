@@ -3,7 +3,7 @@
 Fix a sample space $S$ and for all $A\subset S$ define $A^C=S\setminus A$.
 
 
-## Set Theory
+## Set theory
 
 Thm (Set arithmetic).
  ~ Set intersection $\cup$ and union $\cap$ are commutative, associative, and distributive, i.e.
@@ -34,7 +34,7 @@ Def (Disjoint events, partition).
  ~ $A_1,A_2,\dots$ are *pairwise disjoint* if for all $i\ne j$, $A_i\cap A_j=\nil$. If $\{A_i\}_{i\in I}$ are pairwise disjoint and $\bigcup_{i\in I} A_i=S$, then $\{A_i\}$ are said to form a *partition* of $S$.
 
 
-## Basics of Probability Theory
+## Basics of probability theory
 
 Def (σ-algebra).
  ~ A collection $\calB$ of subsets of $S$ is called a *$\sigma$-algebra* if
@@ -80,7 +80,7 @@ Proposition (Basic properties of probability measures).
     - *Unordered, with replacement*, aka *stars and bars*: since we're putting $k$ balls into $n$ bins, we are equivalently arranging $n-1$ bars and $k$ stars. So, there are $k+n-1$ total slots, and we want to choose $k$ of them for the stars, putting us in the previous case: $$\frac{(k + n - 1)!}{k!(n-1)!}=\binom{k+n-1}{k}.$$
 
 
-## Conditional Probability and Independence
+## Conditional probability and independence
 
 Def (Conditional probability).
  ~ Let $A,B$ be measurable with $P(B)>0$. Then the *conditional probability* $P(A\mid B)$ is given by $$P(A\mid B)=\frac{P(A\cap B)}{P(B)}.$$
@@ -109,7 +109,7 @@ Def (Mutual independence).
  ~ A collection of events $\{A_i\}_{i\in I}$ is said to be mutually independent if for all $J\subset I$, $$P\bigg(\bigcap_{j\in J}A_j\bigg)=\prod_{j\in J}P(A_j).$$
 
 
-## Random Variables
+## Random variables
 
 Def (Measurable function).
  ~ Let $(S,\calA)$, $(T,\calB)$ be measurable spaces and $f:A\to B$. Then we say that $f$ is measurable if $f^{-1}(B)\in\calA$ for all $B\in\calB$, i.e. preimages of measurable sets are measurable.
@@ -123,7 +123,7 @@ Def (Pushforward, induced probability measure).
  ~ Let $X$ be a random variable with range $\calX=X(S)$. Then $X$ induces a *pushforward* probability measure on $\calX$, $P_X=P\circ X^{-1}$, i.e. $$P_X(E)=P(X^{-1}(E)).$$This will most often be written as $P(X\in E)$.
 
 
-## Distribution Functions
+## Distribution functions
 
 Def (Cumulative distribution function).
  ~ The *cumulative distribution function* or *cdf* of a random variable $X$ is $$F_X(x)=P(X\leq x).$$
