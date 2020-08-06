@@ -1,6 +1,7 @@
 % -- extra packages
 % \usepackage{eucal}
 \usepackage{mathtools}
+\usepackage[italicdiff]{physics}
 
 % -- for pandoc-theorem
 \usepackage{amsthm}
@@ -10,12 +11,18 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{proposition}{Proposition}[section]
+\newtheorem{claim}{Claim}[section]
 
 \theoremstyle{remark}
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{note}{Note}[section]
 \newtheorem{example}{Example}[section]
 \newtheorem{assumption}{Assumption}[section]
+
+% less indentation of subitems
+\usepackage{enumitem}
+\setlist[enumerate]{leftmargin=1em}
+\setlist[itemize]{leftmargin=1em}
 
 % cases looking weird
 \makeatletter
@@ -28,23 +35,19 @@
 \makeatother
 
 % -- shorthands
-\newcommand{\1}[1]{\mathbf{1}_{{#1}}}
+\newcommand{\1}[1]{\mathbb{1}_{{#1}}\,}
 
 % -- delimeters
-% tex.stackexchange.com/questions/43008
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
-\makeatletter
-\let\oldabs\abs
-\def\abs{\@ifstar{\oldabs}{\oldabs*}}
-\let\oldnorm\norm
-\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
-\makeatother
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 % -- symbols
 \newcommand{\ind}{\mathbin{{\perp\!\!\!\perp}}}
+\newcommand{\iid}{\text{iid}}
+\newcommand{\toinp}{\to_P}
+\newcommand{\toas}{\to_{\text{a.s.}}}
+\newcommand{\weakto}{\Rightarrow}
+\let\upto\nearrow
 \let\nil\varnothing
 \AtBeginDocument{
   % to do this after unicode-math has done its work
@@ -58,12 +61,17 @@
 \newcommand{\calB}{\mathcal{B}}
 \newcommand{\calF}{\mathcal{F}}
 \newcommand{\calG}{\mathcal{G}}
+\newcommand{\calM}{\mathcal{M}}
 \newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+\newcommand{\bX}{\mathbf{X}}
 
 % -- distributions
 \newcommand{\Bin}{\mathrm{Bin}}
 
-% -- common
-\newcommand{\atan}{\operatorname{atan}}
+% -- common operators
+\renewcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
 
 
