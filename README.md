@@ -29,3 +29,5 @@ Filters:
 Also, you gotta `open /Library/TeX/Root/texmf-dist/fonts/opentype/public/`, and install the TeX Gyre Pagella fonts from `tex-gyre` and `tex-gyre-math` in there into Font Book.
 
 Also, of course, install MacTeX. And I'm not sure how important it is, but I did a `sudo tlmgr update --self` and `sudo tlmgr update --all`.
+
+Finally, to build, just `make`. See the `Makefile` for details.
