@@ -649,7 +649,7 @@
        &=\int_{0}^\infty x^4 e^{-x}\,dx\\
        &=\bqty{-e^{-x}x^4}_0^\infty - \int_0^\infty -e^{-x}\,4x^3\,dx
        &= 0 + 4\pqty{\bqty{-e^{-x}x^3}_0^\infty - \int_0^\infty -e^{-x}\,3x^2\,dx}\\
-       &= 12\int_0^\infty x^2 e^{-x}\,dx
+       &= 12\int_0^\infty x^2 e^{-x}\,dx\\
        &= 24 \quad(=4!).
        \end{aligned}$$
        Thus the kurtosis is $\alpha_4=6.$
@@ -671,11 +671,172 @@
        Well, $E[X(X-1)]=EX^2-EX$, and we know that the Poisson has expectation $\lambda$ by a similar calculation. Thus $EX^2=\lambda^2+\lambda$. Finally,
        $$\var X=EX^2-E[X]^2=\lambda^2+\lambda-\lambda^2=\lambda.$$
 
+30. *Find the mgf for the following pdfs.*
 
+    a. $f(x)=\frac1c$, $0<x<c$.
 
+       Here, $$\begin{aligned}
+       Ee^{tX}
+       &=\int_0^c \frac{e^{tx}}{c}\,dx\\
+       &=\bqty{\frac{e^{tx}}{tc}}_0^c\\
+       &=\frac{e^{tc}-1}{tc}.
+       \end{aligned}$$
 
+    b. $f(x)=\frac{2x}{c^2}$, $0<x<c$.
 
+       $$\begin{aligned}
+       Ee^{tX}
+       &= \frac{2}{c^2} \int_0^c x\,e^{tx}\,dx\\
+       &= \frac{2}{c^2} \pqty{
+       \bqty{\frac1t x e^{tx}}_0^c - \int_0^c e^{tx}\,dx
+       }\\
+       &=
+       \frac{2e^{ct}}{ct}
+       -
+       \frac{2}{c^2} \bqty{\frac1t e^{tx}}_0^c
+       \\
+       &=
+       \frac{2e^{ct}}{ct}
+       -
+       \frac{2}{c^2t} (e^{ct}-1).
+       \end{aligned}$$
 
+    c. $f(x)=\frac{1}{2\beta}e^{-\abs{x-\alpha}/\beta}$, $-\infty<x<\infty$, $-\infty<\alpha<\infty$, $\beta>0$.
 
+       To simplify a little, let $Y=X-\alpha$, so that $Y$ has pdf $g(y)=\frac{1}{2\beta}e^{-\abs{y}/\beta}.$ Then we can recover $$\begin{aligned}
+       M_X(t)
+       &=e^{-\alpha t} Ee^{tY}\\
+       &=\frac{e^{-\alpha t}}{2\beta}
+       \int_{-\infty}^\infty e^{ty}\,e^{-\abs{y}/\beta}\,dy.
+       \end{aligned}$$
+       Let's break this into two integrals,
+       $$\begin{aligned}
+       \int_{-\infty}^0 e^{(t+\frac1\beta)y}\,dy
+       &=
+       \bqty{\frac{e^{(t+\frac1\beta)y}}{t+\frac1\beta}}_{-\infty}^0
+       =
+       \frac{1}{t+\frac1\beta},
+       \\
+       \int_{0}^\infty e^{(t-\frac1\beta)y}\,dy
+       &=
+       \bqty{\frac{e^{(t-\frac1\beta)y}}{t-\frac1\beta}}_{0}^\infty
+       =
+       \frac{1}{t-\frac1\beta},
+       \end{aligned}$$
+       where we only have convergence for $t<\frac1\beta$. In the end,
+       $$M_X(t)
+       =\frac{e^{-\alpha t}}{2\beta} \bqty{\frac{1}{t+\frac1\beta}+\frac{1}{t-\frac1\beta}}
+       =
+       \frac{e^{-\alpha t}}{\beta} \frac{1}{t^2-\beta^{-2}}.$$
 
+31. *Does a distribution exist for which $M_X(t)=t/(1-t)$, $\abs{t}<1$?*
 
+    No, because what random variable satisfies $Ee^{0X}=0$?
+
+32. *Let $S(t)=\log M_X(t)$. Then $S'(0)=EX$ and $S''(0)=\var X$.*
+
+    Indeed,$$\begin{aligned}
+    \eval{\dv{t}S(t)}_{t=0} = \eval{\frac{1}{M_X(t)}M_X'(t)}_{t=0} = 1\cdot M_X'(0)=EX,
+    \end{aligned}$$
+    and
+    $$\begin{aligned}
+    \eval{\dv[2]{t} S(t)}_{t=0}
+    &=
+    \eval{\dv{t} \frac{M_X'(t)}{M_X(t)}}_{t=0}\\
+    &=
+    \frac{M_X(0)M_X''(0)-M_X'(0)^2}{M_X(0)^2}\\
+    &=
+    E[X^2]-E[X]^2.
+    \end{aligned}$$
+
+33. *Verify the following mgfs and use them to calculate $EX$ and $\var X$.*
+
+    a. Poisson$(\lambda)$.
+
+       Here, $$\begin{aligned}
+       M_X(t)
+       &= \sum_{x=0}^\infty e^{tx}\frac{e^{-\lambda}\lambda^x}{x!} \\
+       &= e^{e^t\lambda-\lambda}\sum_{x=0}^\infty \frac{e^{-e^t\lambda}(e^t\lambda)^x}{x!} \\
+       &=e^{\lambda(e^t-1)}.
+       \end{aligned}$$
+
+       By the last exercise, we can consider $S_X(t)=\log M_X(t)=\lambda(e^t-1)$. Then, interestingly, $S_X^{(n)}(t)=\lambda e^t$ for all $n>0$, so that $$EX=S_X'(0)=\lambda,$$ and $$\var X=S_X''(0)=\lambda.$$
+
+    b. Geometric with $x$ failures.
+
+       Using the geometric sum formula $\sum_{i=0}^\infty r^i=\frac{1}{1-r}$, we have $$\begin{aligned}
+       M_X(t)
+       &=\sum_{x=0}^\infty e^{tx} p (1-p)^x\\
+       &=p \sum_{x=0}^\infty (e^t(1-p))^x\\
+       &=\frac{p}{1-e^t(1-p)}.
+       \end{aligned}$$
+       Then, letting $q=1-p$ to clean it up, $$\begin{aligned}
+       EX&=\eval{M_X'(t)}_{t=0}=\eval{\frac{pqe^t}{(1-e^tq)^2}}_{t=0}=\frac{1-p}{p},\\
+       \var X
+       &=\eval{M_X''(t)}_{t=0}\\
+       &=p(1-p)\eval{(1-qe^t)^2e^t + 2qe^{2t}(1-qe^t){(1-qe^t)^4}}_{t=0}\\
+       &=p(1-p)\frac{p^2+2p(1-p)}{p^4}\\
+       &=\frac{1-p}{p^2}.
+       \end{aligned}$$
+
+    c. Gaussian $N(\mu,\sigma^2)$.
+
+       Let's start with $N(0,1)$ and use the affine formula to finish. Completing the square in the exponent, $$\begin{aligned}
+       M_X(t)
+       &= \int_{-\infty}^\infty e^{tx}\frac{1}{\sqrt{2\pi}}e^{-x^2/2}\,dx\\
+       &= \int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}} e^{-(x^2 + 2tx)/2}\,dx\\
+       &= e^{-t^2/2} \int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}} e^{-(x+t)^2/2}\,dx\\
+       &= e^{-t^2/2}.
+       \end{aligned}$$
+       Then
+       $$M_{\sigma X + \mu}=e^{\mu t} M_X(\sigma t)=e^{\mu t + \sigma^2 t^2/2}.$$
+
+34. *A distribution cannot be determined by a finite collection of moments. Let $X\thicksim N(0,1)$ and $Y$ be the discrete random variable with $P(Y=\sqrt{3})=P(Y=-\sqrt{3})=\frac16$ and $P(Y=0)=\frac23$. Then $EX^r=EY^r$ for $r=1,2,3,4,5$.*
+
+    Indeed, clearly the odd moments are all 0 since these distributions are symmetric. So, it suffices to compute the moments for $r=2,4$. As we've computed previously, $EX^2=1$ and $EX^4=3$.
+
+    For $Y$, we have $\frac{2\cdot3}{6}=1$ and $\frac{2\cdot 9}{6}=3$.
+
+35. *I'm including (a) of this problem below with 36.*
+
+36. *Let $X$ be standard lognormal, so that it has pdf*$$f(x)=\frac{1}{\sqrt{2\pi}x}e^{-\log(x)^2/2}.$$*Show that $EX^r=e^{r^2/2}$, so that all moments exists, and show that the mgf does not exist.*
+
+    Indeed, make the change of variables $y=\log x$ (so that $x^r=e^{ry}$) and $dy=\frac{dx}{x}$. Then, $$\begin{aligned}
+    EX^r
+    &= \int_0^\infty \frac{x^{r}}{\sqrt{2\pi}x} e^{-\log(x)^2/2}\,dx\\
+    &= \int_0^\infty \frac{1}{\sqrt{2\pi}} e^{-y^2/2+ry}\,dy\\
+    &= e^{-r^2/2}\int_0^\infty \frac{1}{\sqrt{2\pi}} e^{-(y^2-2ry+r^2)/2}\,dy\\
+    &= e^{-r^2/2},
+    \end{aligned}$$
+    where we recognized the $N(r,1)$ pdf in there. For the mgf, it suffices to show that the integral $$\int_0^\infty \frac{e^{tx}}{x}e^{-\log(x)^2/2}\,dx$$ does not converge for any $t\neq 0$, since the mgf needs to exist in a neighborhood of 0. For this, it suffices to show that the integrand does not converge to 0. Indeed, $$\begin{aligned}
+    \lim_{x\to\infty}\frac{e^{tx}}{xe^{\log(x)^2/2}}
+    &=\lim_{x\to\infty}\frac{te^{tx}}{e^{\log(x)^2/2}+\frac12e^{\log(x)^2/2}}\\
+    &=2\lim_{x\to\infty}\frac{te^{tx}}{e^{-\log(x)^2/2}}\\
+    &=t\frac23\lim_{x\to\infty}e^{tx-\log(x)^2/2}\\
+    &=t\frac23\exp(\lim tx-\log(x)^2/2)=\infty.
+    \end{aligned}$$
+
+<!-- 37 -->
+
+38. *Let $X$ have the negative binomial distribution with pmf* $$f(x)=\binom{r+x-1}{x} p^r (1-p)^x,$$ *where $x=0,1,2,\dots$, $0<p<1$, and $r$ is the number of successful outcomes.*
+
+    a. *Calculate $M_X(t)$.*
+
+       $$\begin{aligned}
+       Ee^{tX}
+       &= \sum_{x=0}^\infty e^{tx} \binom{r+x-1}p^r(1-p)^x \\
+       &= \frac{p^r}{(1-e^t+pe^{t})^r}\sum_{x=0}^\infty \binom{r+x-1}(1-e^t+pe^{t})^r(e^t(1-p))^x \\
+       &= \frac{p^r}{(1-e^t+pe^{t})^r}.
+       \end{aligned}$$
+
+    b. *Let $Y=2pX$. Then the mgf of $Y$ converges to* $$\pqty{\frac{1}{1-2t}}^r$$ *as $p\to0$, which is the mgf of the $\chi^2_{2r}$ distribution.*
+
+       Indeed, if $Y=2pX$, then $$M_Y(t)=M_X(2pt)=\pqty{\frac{p}{1-e^{2pt}+pe^{2pt}}}^r.$$
+       In the limit as $p\to0$, we can pass inside the $r$th power and apply L'Hôpital to arrive at
+       $$\begin{aligned}
+       \lim_{p\to\infty}\frac{p}{1-e^{2pt}+pe^{2pt}}
+       =
+       \lim_{p\to\infty}\frac{1}{-2te^{2pt}+e^{2pt}+2p^2e^{2pt}}
+       =\frac{1}{1-2t},
+       \end{aligned}$$
+       which shows the result after restoring the $r$th power.
