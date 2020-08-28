@@ -10,9 +10,13 @@ Remember, $$f(x,y)=\pdv[2]{F(x,y)}{x}{y}=\pdv[2]{P(X\leq x,Y\leq y)}{x}{y}.$$
 
 Recall the conditional density $$f(y\mid x)=\frac{f(x,y)}{f_X(x)}$$ defined wherever $f_X(x)>0$ (i.e. if $Y$ absolutely continuous wrt $X$).
 
-$X$ and $Y$ are independent if $$f(x,y)=f_X(x)f_Y(y),$$and actually iff there exist $g,h$ such that $f(x,y)=g(x)h(y)$.
+Def (Independence).
+ ~ $X$ and $Y$ are independent if $$f(x,y)=f_X(x)f_Y(y),$$and actually iff there exist $g,h$ such that $f(x,y)=g(x)h(y)$.
 
-That factorization lets you break up integrals: $$E[g(X)h(Y)]=Eg(X)Eh(Y).$$
+That factorization lets you break up integrals: $$E[g(X)h(Y)]=Eg(X)Eh(Y).$$ In particular, $P(X\in A, Y\in B)=P(X\in A)P(Y\in B)$.
+
+Def (Conditional expectation and variance).
+ ~ Recall the conditional expectation $$E[Y\mid X=x]=\int y\,f(y\mid x)\,dy$$ and variance $$\var(Y\mid X=x)=E[Y^2\mid X=x]-E[Y\mid X=x]^2.$$
 
 
 ## Bivariate transformations
@@ -111,3 +115,8 @@ Theorem (Jensen's inequality).
  ~ Let $g$ convex. Then $$g(EX)\leq E[g(X)].$$
 
 One can apply Jensen to show that the harmonic mean is bounded by the geometric mean is bounded by the arithmetic mean.
+
+Theorem (Covariance inequality).
+ ~ Let $X$ a random variable, $g$ and $h$ functions such that all below expectations exist. Then
+ ~  a. If $g$ is increasing and $h$ is decreasing, $$E[g(X)h(X)]\leq Eg(X)\,Eh(X).$$
+ ~  b. If $g$ and $h$ are both increasing (or decreasing), $$E[g(X)h(X)]\geq Eg(X)\,Eh(X).$$

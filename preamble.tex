@@ -1,5 +1,6 @@
 % -- extra packages
 % \usepackage{eucal}
+\usepackage{nicefrac}
 \usepackage{mathtools}
 \usepackage[italicdiff]{physics}
 
@@ -67,7 +68,10 @@
 \newcommand{\bX}{\mathbf{X}}
 
 % -- distributions
-\newcommand{\Bin}{\mathrm{Bin}}
+\let\dist\thicksim
+\newcommand{\distiid}{\thicksim_{\text{iid}}}
+\DeclareMathOperator{\Bin}{Binomial}
+\DeclareMathOperator{\Po}{Poisson}
 
 % -- common operators
 \renewcommand{\var}{\operatorname{var}}

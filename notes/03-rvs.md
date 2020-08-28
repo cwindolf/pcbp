@@ -61,19 +61,26 @@ Theorem (Exponential families let you calculate by differentiation).
  -\pdv[2]{\theta_j}\log c(\theta)-E\bqty{\textstyle\sum_{i=1}^k\pdv[2]{\theta_j}w_i^(\theta)t_i(X)}
  \end{aligned}$$
 
-Curved exponential families.
+Def (Curved exponential families).
+ ~ An exponential family is called curved if it has fewer parameters than functions $t_i$. If it has as many parameters as functions, it is called a full exponential family.
+
+For example, $N(\mu,\mu^2)$.
 
 ## Location and scale families
 
-## Probability inequalities
+Theorem (Location and scale).
+ ~ For any pdf $f$, and any $\mu$ and $\theta>0$, $$g(x\mid\mu,\theta)=\frac1\theta f\pqty{\frac{x-\mu}{\sigma}}$$ is a pdf, and we call it the location-scale family with standard pdf $f$, location $\mu$, and scale $\sigma$. Finally, if $Z$ has pdf $f$, then $X=\sigma Z+\mu$ has pdf $g$.
+
+Theorem (Moments after shifting and scaling).
+ ~ Let $Z$ be a random variable with pdf $f$, with first and second moments. Let $X$ have pdf $g$ as above. Then $$EX=\sigma EZ+\mu\qand \var X=\sigma^2\var X.$$
+
+## Inequalities and identities
 
 Theorem (Chebyshev's inequality).
  ~ For $g$ nonnegative and $r>0$, $$P(g(X)\geq r)\leq \frac{Eg(X)}{r}.$$
 
 Theorem (A normal inequality).
  ~ Let $Z$ standard normal. Then $$P(\abs{Z}\geq t)\leq\sqrt{\frac{2}{\pi}}\frac{e^{-t^2/2}}{t}.$$
-
-## Identities
 
 There are more than this, but.
 
